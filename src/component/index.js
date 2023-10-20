@@ -11,8 +11,6 @@ import Signup from "./Signup";
 import PostForm from './post-form/PostForm'
 import PostCard from './PostCard'
 import AuthLayout from './AuthLayout'
-import AddPost from "../pages/AddPost";
-import AllPosts from "../pages/AllPost";
 export {
     Header,
     Footer,
@@ -27,6 +25,4 @@ export {
     PostForm,
     AuthLayout,
     PostCard,
-    AddPost,
-    AllPosts,
 }

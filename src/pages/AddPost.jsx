@@ -1,5 +1,6 @@
-import React from 'react'
-import { Container, PostForm } from '../component'
+import React from 'react';
+import { Container } from '../component';
+import PostForm from '../component/post-form/PostForm'
 function AddPost() {
     return (
         <div>
@@ -10,4 +11,4 @@ function AddPost() {
     )
 }
 
-export default AddPost
+export default AddPost;

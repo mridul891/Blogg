@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { login as authLogin } from "../store/authSlice";
 import { Button, Input } from "./index";
@@ -30,7 +30,7 @@ function Login() {
         className={`mx-auto w-full max-w-lg bg-gray-100 rounded-xl p-10 border border-black/10`}
       >
         <h2 className="text-center text-2xl font-bold leading-tight">
-          Sign in to your account
+          Login in to your account
         </h2>
         <p className="mt-2 text-center text-base text-black/60">
           Don&apos;t have any account ? &nbsp;

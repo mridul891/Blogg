@@ -1,10 +1,10 @@
-import React, { useCallback, useEffect } from "react";
+import { useCallback, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { Button, Input, Select, RTE } from "../index";
 import appwriteService from "../../appwrite/config";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
-function PostForm({post}) {
+export default function PostForm(post) {
     const { register, handleSubmit, watch, setValue, control, getValues } =
         useForm({
             defaultValues: {
@@ -131,4 +131,4 @@ function PostForm({post}) {
     );
 }
 
-export default PostForm;
+

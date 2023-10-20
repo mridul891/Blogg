@@ -1,9 +1,9 @@
-import React from "react";
 import { nanoid } from "@reduxjs/toolkit";
 import { Container, LogoutBtn } from "../index";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import { useId } from "react";
 function Header() {
   const authStatus = useSelector((state) => state.auth.status);
   const navigate = useNavigate();
@@ -24,12 +24,12 @@ function Header() {
       active: !authStatus,
     },
     {
-      name: "All Posts",
+      name: "AllPosts",
       slug: "/all-posts",
       active: authStatus,
     },
     {
-      name: "Add Post",
+      name: "AddPost",
       slug: "/add-post",
       active: authStatus,
     },
@@ -44,7 +44,7 @@ function Header() {
           <ul className="">
             {navItems.map((item) =>
               item.active ? (
-                <li key={nanoid}>
+                <li key={useId}>
                   <button onClick={() => navigate(item.slug)}>
                     {item.name}
                   </button>

@@ -1,10 +1,10 @@
-import React,{ useState } from "react";
+import { useState } from "react";
 import authService from "../appwrite/auth";
 import { Link,useNavigate } from "react-router-dom";
 import { login } from "../store/authSlice";
 import { useDispatch } from "react-redux";
 import { useForm } from "react-hook-form";
-import { Input } from "postcss";
+import { Input } from "./index";
 import Button from "./Button"
 function Singup() {
   const navigate = useNavigate();
