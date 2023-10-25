@@ -11,6 +11,7 @@ import Signup  from "./pages/Signup.jsx";
 import  Home  from "./pages/Home.jsx";
 import EditPost from "./pages/EditPost.jsx";
 import AllPosts from './pages/AllPost.jsx';
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -60,6 +61,7 @@ const router = createBrowserRouter([
           </AuthLayout>
         ),
       },
+      
     ],
   },
 ]);

@@ -15,24 +15,24 @@ function App() {
       .getCurrentUser()
       .then((userData) => {
         if (userData) {
-          dispatch(login(userData));
+          dispatch(login({ userData }));
         } else {
           dispatch(logout());
         }
       })
       .finally(() => setLoading(false));
   }, []);
-  return (
-    !loading ? <div className="min-h-screen flex flex-wrap content-between">
+  return !loading ? (
+    <div className="min-h-screen flex flex-wrap content-between">
       <div className="w-full block">
-        <Header/>
+        <Header />
         <main>
-        <Outlet/>
+          <Outlet />
         </main>
-        <Footer/>
+        <Footer />
       </div>
-    </div>:null
-  );
+    </div>
+  ) : null;
 }
 
 export default App;

@@ -11,7 +11,7 @@ import Signup from "./Signup";
 import PostForm from './post-form/PostForm'
 import PostCard from './PostCard'
 import AuthLayout from './AuthLayout'
-export {
+export  {
     Header,
     Footer,
     Container,
