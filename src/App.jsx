@@ -23,8 +23,8 @@ function App() {
       .finally(() => setLoading(false));
   }, []);
   return !loading ? (
-    <div className="min-h-screen flex flex-wrap content-between">
-      <div className="w-full block">
+    <div className="min-h-screen flex flex-wrap">
+      <div className="w-full flex flex-col justify-between">
         <Header />
         <main>
           <Outlet />
