@@ -1,11 +1,11 @@
 import { useCallback, useEffect } from "react";
 import { useForm } from "react-hook-form";
-import { Button, Input, Select, RTE } from "..";
+import { Button, Input, Select, RTE } from "../index";
 import appwriteService from "../../appwrite/config";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 
-export default function PostForm({ post }) {
+export default function PostForm({post}) {
     const { register, handleSubmit, watch, setValue, control, getValues } = useForm({
             defaultValues: {
                 title: post?.title || "",
@@ -19,9 +19,7 @@ export default function PostForm({ post }) {
 
     const submit = async (data) => {
         if (post) {
-            const file = data.image[0]
-                ? await appwriteService.uploadFile(data.image[0])
-                : null;
+            const file = data.image[0]? await appwriteService.uploadFile(data.image[0]): null;
             if (file) {
                 appwriteService.deleteFile(post.featuredImage);
             }
@@ -38,10 +36,7 @@ export default function PostForm({ post }) {
             if (file) {
                 const fileId = file.$id;
                 data.featuredImage = fileId;
-                const dbPost = await appwriteService.createPost({
-                    ...data,
-                    userId: userData.$id
-                });
+                const dbPost = await appwriteService.createPost({...data,userId: userData.$id });
                 if (dbPost) {
                     navigate(`/post/${dbPost.$id}`);
                 }
@@ -54,15 +49,16 @@ export default function PostForm({ post }) {
             return value
                 .trim()
                 .toLowerCase()
-                .replace(/^[a-zA-A\d\s]+/g, "-");
+                .replace(/^[a-zA-A\d\s]+/g, "-")
+                .replace(/\s/g, "-");
         }
         return "";
-    });
+    },[]);
 
     useEffect(() => {
         const subscription = watch((value, { name }) => {
             if (name === "title") {
-                setValue("slug", slugTransform(value.title, { shouldValidate: true }));
+                setValue("slug", slugTransform(value.title), { shouldValidate: true });
             }
         });
         return () => {

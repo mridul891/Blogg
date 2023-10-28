@@ -1,9 +1,8 @@
 import conf from '../conf/conf.js';
 import { Client, ID, Databases, Storage, Query } from "appwrite";
-
 export class Service{
     client = new Client();
-    databases;
+    Databases;
     bucket;
     
     constructor(){
@@ -14,7 +13,7 @@ export class Service{
         this.bucket = new Storage(this.client);
     }
 
-    async createPost({title, slug, content, featuredImage, status, userId}){
+    async createPost({title, slug, content, featuredImage, status}, userId){
         try {
             return await this.databases.createDocument(
                 conf.appwriteDatabaseId,
@@ -58,7 +57,6 @@ export class Service{
                 conf.appwriteDatabaseId,
                 conf.appwriteCollectionId,
                 slug
-            
             )
             return true
         } catch (error) {
@@ -72,8 +70,7 @@ export class Service{
             return await this.databases.getDocument(
                 conf.appwriteDatabaseId,
                 conf.appwriteCollectionId,
-                slug
-            
+                slug,
             )
         } catch (error) {
             console.log("Appwrite serive :: getPost :: error", error);
@@ -124,7 +121,7 @@ export class Service{
         }
     }
 
-    getFilePreview(fileId){
+    async getFilePreview(fileId){
         return this.bucket.getFilePreview(
             conf.appwriteBucketId,
             fileId
